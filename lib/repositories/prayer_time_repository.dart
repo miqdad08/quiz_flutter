@@ -10,8 +10,13 @@ class PrayerTimesRepository {
   Future<PrayerMonthData> fetchSchedule({required PrayerParams params}) async {
     final uri = Uri.parse(_baseUrl);
 
-
-    final response = await http.post(uri, body: params.toJson());
+    final response = await http.post(
+      uri,
+      headers: <String, String>{
+        'Content-Type': 'application/json; charset=UTF-8',
+      },
+      body: jsonEncode(params.toJson())
+    );
 
     print(response.body);
 

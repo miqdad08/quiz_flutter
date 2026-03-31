@@ -1,6 +1,7 @@
 
 import 'package:flutter/material.dart';
 import 'package:quiz_flutter/pages/home_pages.dart';
+import 'package:quiz_flutter/pages/portfolio_page.dart';
 import 'package:quiz_flutter/pages/prayer_times_page.dart';
 
 import '../config/app_theme.dart';
@@ -20,7 +21,7 @@ class _MainPageState extends State<MainPage> {
   static const _pages = <Widget>[
     HomePage(),
     CalculatorPage(),
-    PortfolioScreen(),
+    PortfolioPage(),
     PrayerTimesPage(),
   ];
 
@@ -139,42 +140,3 @@ class _NavItem {
 
 
 
-
-class PortfolioScreen extends StatelessWidget {
-  const PortfolioScreen({super.key});
-
-  @override
-  Widget build(BuildContext context) => const _PlaceholderPage(
-    icon: Icons.workspaces_outlined,
-    label: 'Portfolio',
-  );
-}
-
-
-
-class _PlaceholderPage extends StatelessWidget {
-  const _PlaceholderPage({required this.icon, required this.label});
-  final IconData icon;
-  final String label;
-
-  @override
-  Widget build(BuildContext context) {
-    return Center(
-      child: Column(
-        mainAxisSize: MainAxisSize.min,
-        children: [
-          Icon(icon, size: 56, color: AppTheme.teal.withOpacity(0.4)),
-          const SizedBox(height: 16),
-          Text(
-            label,
-            style: const TextStyle(
-              fontSize: 20,
-              fontWeight: FontWeight.w600,
-              color: AppTheme.textSecondary,
-            ),
-          ),
-        ],
-      ),
-    );
-  }
-}
